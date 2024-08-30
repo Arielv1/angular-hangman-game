@@ -1,0 +1,53 @@
+.gameDisplay {
+    position: relative;
+    left: 25%;
+    width: 50%;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1%;
+    * {
+        margin: 1%;
+    }
+}
+
+.title {
+    font-size: 36px;
+    font-weight: bold;
+}
+
+.cells{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    gap: 2%;
+    width: 80%;
+}
+
+.userGuessesBlock {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.guessBlock {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    input {
+        height: 40px;
+        width: 40px;
+        text-align: center;
+        border-radius: 8px;
+        border: 2px solid black;
+        font-size: 20px;
+        text-transform: uppercase;
+    }
+}
+
+.remainingGuessesBlock {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}

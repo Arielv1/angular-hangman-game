@@ -1,0 +1,31 @@
+<div class="gameDisplay">
+    <span class="title">The Hangman</span>
+
+    <div class="cells">
+        @for (letter of wordToGuess().split(''); track $index) {
+            <app-cell [letterToGuess]="letter" [isLetterToShow]="userGuesses().includes(letter)"/>
+        }
+    </div>
+    <div class="guessBlock">
+        <span>Enter Guess:</span>
+        <input #userGuess [maxLength]="1"
+            [(ngModel)]="letterGuess"  
+            (keyup.enter)="enterUserGuess(userGuess.value.toUpperCase())"
+            [disabled]="isGameOver()"
+          />
+    </div>
+    <div class="userGuessesBlock">
+        {{getUserGuesses()}}
+    </div>
+    <div class="remainingGuessesBlock">
+        <span>Remaining Guesses: {{remainingGuesses()}}</span>
+    </div>
+    <div *ngIf="isGameOver()" class="gameOverBlock">
+        @if (hasPlayerWon()) {
+            You Won!
+        } @else {
+            You Lost!
+        }
+    </div>
+    <button mat-flat-button (click)="newGame()" [disabled]="!isGameOver()">Play Again</button>
+</div>
